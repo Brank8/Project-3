@@ -15,7 +15,7 @@ function Header() {
         <Link to="/searchTeam" className="p-3 hover:bg-red-800 cursor-pointer rounded-lg flex items-center">Team<FaSearch className="ml-1"/></Link>
         <div className="relative group">
           <button className="flex items-center p-3 hover:bg-red-800 rounded-lg">
-            Social Links
+            Message me
             <SlArrowDown className="ml-1" />
           </button>
           <div className="absolute hidden group-hover:flex flex-col bg-white rounded-md shadow-lg min-w-max w-full">
