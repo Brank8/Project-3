@@ -60,8 +60,9 @@ function SearchTeam() {
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundImage: "url('/nbalogos.webp')" }}>
-      <div className="flex flex-col items-center py-2 border-red-300 bg-white p-5 rounded-2xl">
-        <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
+      <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-center">
+        <form onSubmit={handleSubmit} className="flex flex-col items-center bg-white p-5 py-2 border-red-300 rounded-2xl max-w-lg mx-auto">
           <div className="h-6">
             {warningMessage && <div className="text-red-500">{warningMessage}</div>}
             {searchCompleted && filteredTeams.length === 0 && <div className="text-red-500">No results found.</div>}
@@ -71,7 +72,7 @@ function SearchTeam() {
             placeholder="Type team here..."
             value={searchQuery}
             onChange={handleChange}
-            className="px-4 py-2 border-red-300 rounded focus:outline-none focus:border-blue-500 mb-3"
+            className="px-4 py-2 border-red-300 rounded focus:outline-none focus:border-blue-500 mb-3 w-full"
             style={{ border: "4px solid #f56565" }}
           />
           <div className="flex justify-center">
@@ -87,8 +88,17 @@ function SearchTeam() {
             </button>
           </div>
         </form>
-        {filteredTeams.map(team => <TeamResult key={team.id} team={team} />)}
+        </div>
+        <div className="flex justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {filteredTeams.map(team => (
+          <div key={team.id} className="flex-justify-center">
+          <TeamResult team={team} />
+          </div>
+          ))}
+          </div>
       </div>
+    </div>
     </div>
   );
 }

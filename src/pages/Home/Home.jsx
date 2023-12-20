@@ -1,10 +1,10 @@
 function Home() {
   return (
     <div
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex items-center justify-center bg-cover bg-no-repeat bg-fixed"
       style={{ backgroundImage: "url('/homebg.webp')"}}
     >
-<div className="w-11/12 max-w-lg md:max-w-xl lg:max-w-2xl mx-auto text-center p-5 bg-blue-500 bg-opacity-95 hover:scale-105 transition-transform duration-300 ease-in-out" style={{ borderRadius: '55px' }}>
+<div className="w-10/12 max-w-lg md:max-w-xl lg:max-w-2xl mx-auto text-center p-5 bg-blue-500 bg-opacity-95 hover:scale-105 transition-transform duration-300 ease-in-out" style={{ borderRadius: '55px' }}>
         <p className="text-white text-lg md:text-xl lg:text-2xl">
           Welcome to SlamSearch, the ultimate destination for NBA enthusiasts!
           Our platform offers a seamless and intuitive experience for basketball
