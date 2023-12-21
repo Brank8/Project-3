@@ -1,8 +1,23 @@
-# React + Vite
+# SlamSearch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Welcome to SlamSearch, the ultimate destination for NBA enthusiasts! Our platform offers a seamless and intuitive experience for basketball fans to delve into the exciting world of the NBA. Search players or teams by name and explore!
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Wireframes
+
+![0](public/wireframe1.png)
+
+![0](public/wireframe2.png)
+
+![0](public/wireframe3.png)
+
+## Technologies used
+
+- List of the technologies used for this game are:
+
+    - JSX
+    - Vite
+    - Tailwind CSS
+    - HTML
+    - JavaScript
+    - 

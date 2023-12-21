@@ -10,13 +10,13 @@ function SearchTeam() {
 
   useEffect(() => {
     const fetchTeams = async () => {
-      const url = 'https://free-nba.p.rapidapi.com/teams?page=0';
+      const url = "https://free-nba.p.rapidapi.com/teams?page=0";
       const options = {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-          'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
-        }
+          "X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
+          "X-RapidAPI-Host": "free-nba.p.rapidapi.com",
+        },
       };
       try {
         const response = await fetch(url, options);
@@ -42,7 +42,7 @@ function SearchTeam() {
       setFilteredTeams([]);
       setSearchCompleted(false);
     } else {
-      const filtered = teams.filter(team =>
+      const filtered = teams.filter((team) =>
         team.full_name.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredTeams(filtered);
@@ -59,46 +59,56 @@ function SearchTeam() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ backgroundImage: "url('/nbalogos.webp')" }}>
-      <div className="flex flex-col gap-5">
-      <div className="flex flex-col items-center">
-        <form onSubmit={handleSubmit} className="flex flex-col items-center bg-white p-5 py-2 border-red-300 rounded-2xl max-w-lg mx-auto">
+    <div
+      className="min-h-screen flex items-center justify-center"
+      style={{ backgroundImage: "url('/nbalogos.webp')" }}
+    >
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 max-w-lg mx-auto z-10">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center bg-white p-5 py-2 border-4 border-green-500 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out"
+        >
           <div className="h-6">
-            {warningMessage && <div className="text-red-500">{warningMessage}</div>}
-            {searchCompleted && filteredTeams.length === 0 && <div className="text-red-500">No results found.</div>}
+            {warningMessage && (
+              <div className="text-red-500">{warningMessage}</div>
+            )}
+            {searchCompleted && filteredTeams.length === 0 && (
+              <div className="text-red-500">No results found.</div>
+            )}
           </div>
           <input
             type="text"
             placeholder="Type team here..."
             value={searchQuery}
             onChange={handleChange}
-            className="px-4 py-2 border-red-300 rounded focus:outline-none focus:border-blue-500 mb-3 w-full"
-            style={{ border: "4px solid #f56565" }}
+            className="px-4 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent mb-3 w-full transition duration-300 ease-in-out"
           />
-          <div className="flex justify-center">
-            <button type="submit" className="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
+          <div className="flex justify-center space-x-2">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 transition ease-in-out duration-300"
+            >
               Search
             </button>
-            <button 
-              type="button" 
-              onClick={handleClear} 
-              className="px-4 py-2 ml-2 bg-gray-500 text-white font-bold rounded hover:bg-gray-700"
+            <button
+              type="button"
+              onClick={handleClear}
+              className="px-4 py-2 bg-gray-500 text-white font-bold rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition ease-in-out duration-300"
             >
               Clear
             </button>
           </div>
         </form>
-        </div>
-        <div className="flex justify-center">
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        {filteredTeams.map(team => (
-          <div key={team.id} className="flex-justify-center">
-          <TeamResult team={team} />
-          </div>
-          ))}
-          </div>
       </div>
-    </div>
+      <div className="pt-60 pb-14">
+        <div className="divParent flex flex-wrap justify-center gap-2 mx-auto">
+          {filteredTeams.map((team) => (
+            <div className="divChild" key={team.id}>
+              <TeamResult team={team} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
